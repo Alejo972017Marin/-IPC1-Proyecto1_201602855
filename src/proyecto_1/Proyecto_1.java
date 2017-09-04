@@ -9,8 +9,7 @@ public class Proyecto_1 {
         
         Login log = new Login();
         log.setVisible(true);
-        //ProPisto Pp = new ProPisto();
-        //Pp.setVisible(true);
+
     }
     
 }
