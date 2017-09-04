@@ -23,6 +23,19 @@ public class SuperUsuario {
         
     }
         
+        public void Asignacion(){
+            
+            
+        }
+        
+        public void Designar(){
+            
+        }
+        
+        public void Cajero(){
+            
+        }
+        
     
     
     
