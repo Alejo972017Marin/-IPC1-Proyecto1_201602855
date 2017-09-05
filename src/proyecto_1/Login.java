@@ -13,8 +13,8 @@ public class Login extends JFrame {
 
     private JTextField Usuario;
     private JLabel usuario;
-    private JTextField Pasword;
-    private JLabel pasword;
+    //private JTextField Pasword;
+    //private JLabel pasword;
     private JButton Aceptar;
     private JButton Cancelar;
 
@@ -28,8 +28,8 @@ public class Login extends JFrame {
         //Inicializar 
         Usuario = new JTextField(10);
         usuario = new JLabel("USUARIO:");
-        Pasword = new JTextField(4);
-        pasword = new JLabel("PIN:");
+      //  Pasword = new JTextField(4);
+      //  pasword = new JLabel("PIN:");
         Aceptar = new JButton("Confirmar");
         Cancelar = new JButton("Cancelar");
 
@@ -37,8 +37,8 @@ public class Login extends JFrame {
         //add();
         add(usuario);
         add(Usuario);
-        add(pasword);
-        add(Pasword);
+       // add(pasword);
+       // add(Pasword);
         add(Aceptar);
         add(Cancelar);
         //prop
@@ -53,8 +53,8 @@ public class Login extends JFrame {
         // .reshape(x,y,dimx,dimy);
         usuario.reshape(20, 20, 100, 20);
         Usuario.reshape(120, 20, 100, 20);
-        pasword.reshape(20, 45, 100, 20);
-        Pasword.reshape(120, 45, 100, 20);
+       // pasword.reshape(20, 45, 100, 20);
+       // Pasword.reshape(120, 45, 100, 20);
         Aceptar.reshape(20, 67, 95, 30);
         Cancelar.reshape(120, 67, 95, 30);
 
@@ -75,18 +75,27 @@ public class Login extends JFrame {
                 }
 
                 //validadndo
+ 
                 SuperUsuario sup = new SuperUsuario();
 
-                if (!sup.SuperUsuario(Usuario.getText(), pasword.getText())) {
-                    JOptionPane.showMessageDialog(null, "Usuario o contraseña invalido");
+                if (sup.SuperUsuario(Usuario.getText())) {
+                    Usuario.setText(" ");
+                                    setVisible(false);
+                SuperUsua Sup = new SuperUsua();
+               
+                Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                Sup.setVisible(true);
+                   
 
                     return;
                 }
+                else{
+                    Usuario.setText(" ");
+                     JOptionPane.showMessageDialog(null, "Usuario o contraseña invalido");
+                     return ;
+                }
 
-                setVisible(false);
-                ProPisto pro = new ProPisto();
-                pro.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                setVisible(true);
+
 
                 //QQQQQQ
             }
@@ -101,7 +110,7 @@ public class Login extends JFrame {
 
             private void CancelarActionPerformed(ActionEvent evt) {
 
-                System.exit(0);
+                Usuario.setText(" ");
 
             }
 
