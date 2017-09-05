@@ -66,6 +66,9 @@ public class SuperUsua extends JFrame {
 
             private void AdminActionPerformed(ActionEvent evt) {
                 setVisible(false);
+                AdmiFrame ad = new AdmiFrame();
+                ad.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                ad.setVisible(true);
                
             }
 

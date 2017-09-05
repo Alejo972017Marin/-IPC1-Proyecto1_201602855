@@ -7,7 +7,7 @@ import javax.swing.SwingConstants;
 
 
 public class CashMoney extends JFrame{
-        private JButton SaldoA;
+    private JButton SaldoA;
     private JButton TraEst;
     private JButton TraLib;
     private JButton Retiro;
