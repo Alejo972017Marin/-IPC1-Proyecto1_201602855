@@ -16,7 +16,7 @@ public class CashMoney extends JFrame{
     public CashMoney(){
         
         setSize(600, 600);
-        setTitle("Pro-Pisto");
+        setTitle("Cash Money");
         setLayout(null);
         setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
         setResizable(true);

@@ -1,5 +1,7 @@
 package proyecto_1;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +18,10 @@ public class AdmiFrame extends JFrame {
     private JButton btAgregar;
     private JButton btBorrar;
     private JTable tbtTabla;
+    Object tab[];
+    Object Datoss[];
+    
+
 
     public AdmiFrame() {
 
@@ -31,7 +37,7 @@ public class AdmiFrame extends JFrame {
         txDeposito = new JTextField(10);
         btAgregar = new JButton("Agregar");
         btBorrar = new JButton("Borrar");
-        tbtTabla = new JTable(60,4);
+        tbtTabla = new JTable(100,4);
 
         add(lbUsuario);
         add(txUsuario);
@@ -54,7 +60,33 @@ public class AdmiFrame extends JFrame {
         txDeposito.reshape(100, 80, 100, 30);
         btAgregar.reshape(20, 150, 100, 50);
         btBorrar.reshape(120, 150, 100, 50);
-        tbtTabla.reshape(300, 100, 500, 500);
+        tbtTabla.reshape(250, 50, 300, 400);
+        
+                btAgregar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+
+            private void CancelarActionPerformed(ActionEvent evt) {
+
+                String nombre = txUsuario.getText();
+                String Deposito = txUsuario.getText();
+                    Object acom[]={nombre,Deposito};
+                
+                
+
+            }
+
+        });
+        
+    }
+    
+        public void llenarTabla(String nombre , double deposito){
+       
+        this.Datoss[10]= tab[10];
+        
         
     }
 

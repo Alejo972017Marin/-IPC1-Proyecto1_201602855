@@ -11,17 +11,8 @@ public class SuperUsuario {
     }
     
     
-    public boolean UsuariosCash(String user, String pas){
-        
-        return false;
-        
-    }
-    
-        public boolean UsuariosPro(String user, String pas){
-        
-        return false;
-        
-    }
+  
+
         
         public void Asignacion(){
             
