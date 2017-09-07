@@ -69,7 +69,7 @@ public class Login extends JFrame {
             private void AceptarActionPerformed(ActionEvent evt) {
                 if (Usuario.getText().equals("")) {
 
-                    JOptionPane.showMessageDialog(null, " ");
+                    JOptionPane.showMessageDialog(null, "Introdusca su Usuario ");
                     Usuario.requestFocusInWindow();
                     return;
                 }
@@ -139,5 +139,15 @@ public class Login extends JFrame {
         });
 
     }
+    
+    
+    
+        public JTextField getNombre( ){
+    return this.Usuario;
+  }
+ 
+  public void setNombre(String nombre){
+    
+  }
 
 }

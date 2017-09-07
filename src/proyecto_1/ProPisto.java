@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 public class ProPisto extends JFrame {
@@ -14,6 +15,8 @@ public class ProPisto extends JFrame {
     private JButton Retiro;
     private JButton Histor;
     private JButton back;
+    
+  
     
     public ProPisto() {
 
@@ -63,6 +66,34 @@ public class ProPisto extends JFrame {
         Retiro.reshape(20, 170, 400, 50);
         Histor.reshape(20, 220, 400, 50);
         back.reshape(120, 420, 100, 20);
+        
+        
+         SaldoA.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent evt) {
+                SaldoAActionPerformed(evt);
+            }
+
+            private void SaldoAActionPerformed(ActionEvent evt) {
+               
+               UsuariosPro UPO = new UsuariosPro();
+
+            
+
+               JOptionPane.showMessageDialog(null, "Su Saldo es de Q.1000.°° ");
+                   
+                    
+                
+                    
+                
+
+            }
+
+            
+               
+            
+
+        });
         
         
                 back.addActionListener(new ActionListener() {

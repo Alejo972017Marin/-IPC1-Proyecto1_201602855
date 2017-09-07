@@ -3,6 +3,7 @@ package proyecto_1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -18,8 +19,12 @@ public class AdmiFrame extends JFrame {
     private JButton btAgregar;
     private JButton btBorrar;
     private JTable tbtTabla;
+    private JComboBox cbEmpresa;
     Object tab[];
-    Object Datoss[];
+    private Object Datoss[][]={{"No","Nombre","Deposito","Empresa"},{" ","","",""},{" ","","",""},{" ","","",""},{" ","","",""},{" ","","",""},{" ","","",""},{" ","","",""},{" ","","",""},{" ","","",""}};
+    private String Cab[] ={"No","Nombre","Deposito","Empresa"};
+    
+    private String Cash[] ={"Pro-Pisto", "Cahs-Money"};
     
 
 
@@ -37,7 +42,8 @@ public class AdmiFrame extends JFrame {
         txDeposito = new JTextField(10);
         btAgregar = new JButton("Agregar");
         btBorrar = new JButton("Borrar");
-        tbtTabla = new JTable(100,4);
+        cbEmpresa = new JComboBox(Cash);
+        tbtTabla = new JTable(Datoss,Cab);
 
         add(lbUsuario);
         add(txUsuario);
@@ -46,7 +52,8 @@ public class AdmiFrame extends JFrame {
         add(btAgregar);
         add(btBorrar);
         add(tbtTabla);
-
+        add(cbEmpresa);
+        
         btAgregar.setHorizontalTextPosition(SwingConstants.CENTER);
         btAgregar.setVerticalTextPosition(SwingConstants.BOTTOM);
 
@@ -60,34 +67,35 @@ public class AdmiFrame extends JFrame {
         txDeposito.reshape(100, 80, 100, 30);
         btAgregar.reshape(20, 150, 100, 50);
         btBorrar.reshape(120, 150, 100, 50);
-        tbtTabla.reshape(250, 50, 300, 400);
+        tbtTabla.reshape(250, 80, 300, 400);
+        cbEmpresa.reshape(260, 20, 100, 30);
         
                 btAgregar.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent evt) {
-                CancelarActionPerformed(evt);
+                AgregarActionPerformed(evt);
             }
 
-            private void CancelarActionPerformed(ActionEvent evt) {
-
+            private void AgregarActionPerformed(ActionEvent evt) {
+                int cont=0;
                 String nombre = txUsuario.getText();
                 String Deposito = txUsuario.getText();
-                    Object acom[]={nombre,Deposito};
+                String empresa = cbEmpresa.getToolTipText();
+                    Object acom[]={ cont++,nombre,Deposito,empresa};
                 
+                    
                 
 
             }
+            
 
         });
+                
+           
         
     }
     
-        public void llenarTabla(String nombre , double deposito){
-       
-        this.Datoss[10]= tab[10];
-        
-        
-    }
+
 
 }

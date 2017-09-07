@@ -2,9 +2,18 @@
 package proyecto_1;
 
 
-public class Transacciones {
+public class Transacciones extends UsuariosPro  {
     
-    public int Saldo = 400;
+    public double Saldo = 0;
+    String Usu="";
+    public void SaldoActual(){
+        
+
+         
+         
+        
+        
+    }
     
     public void TransferenciaStudent(){
         
