@@ -11,12 +11,13 @@ import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
-    private JTextField Usuario;
+    public JTextField Usuario;
     private JLabel usuario;
     //private JTextField Pasword;
     //private JLabel pasword;
     private JButton Aceptar;
     private JButton Cancelar;
+    public String UAPp;
 
     public Login() {
         setSize(320, 220);
@@ -32,6 +33,8 @@ public class Login extends JFrame {
         //  pasword = new JLabel("PIN:");
         Aceptar = new JButton("Confirmar");
         Cancelar = new JButton("Cancelar");
+        
+      
 
         //agregar
         //add();
@@ -57,7 +60,9 @@ public class Login extends JFrame {
         // Pasword.reshape(120, 45, 100, 20);
         Aceptar.reshape(20, 67, 95, 30);
         Cancelar.reshape(120, 67, 95, 30);
-
+ //igualando valores usuarip
+                         
+        
         //events
         //BOTON ACEPTAR ACCION
         Aceptar.addActionListener(new ActionListener() {
@@ -81,6 +86,7 @@ public class Login extends JFrame {
                     Usuario.setText(" ");
                     setVisible(false);
                     SuperUsua Sup = new SuperUsua();
+                    Sup.SUperUsuario();
 
                     Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Sup.setVisible(true);
@@ -90,13 +96,14 @@ public class Login extends JFrame {
 
                 UsuariosPro UP = new UsuariosPro();
                 if (UP.UsuariosPro(Usuario.getText())) {
-
+                       
                     Usuario.setText(" ");
                     setVisible(false);
-                    ProPisto pro = new ProPisto();
+                         SuperUsua Sup = new SuperUsua();
+                    Sup.ProPisto();
 
-                    pro.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                    pro.setVisible(true);
+                    Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    Sup.setVisible(true);
 
                     return;
                 }
@@ -106,10 +113,11 @@ public class Login extends JFrame {
 
                     Usuario.setText(" ");
                     setVisible(false);
-                    CashMoney CM = new CashMoney();
+                   SuperUsua Sup = new SuperUsua();
+                   Sup.CashMoney();
 
-                    CM.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                    CM.setVisible(true);
+                    Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    Sup.setVisible(true);
 
                     return;
 
@@ -142,12 +150,6 @@ public class Login extends JFrame {
     
     
     
-        public JTextField getNombre( ){
-    return this.Usuario;
-  }
- 
-  public void setNombre(String nombre){
-    
-  }
+
 
 }

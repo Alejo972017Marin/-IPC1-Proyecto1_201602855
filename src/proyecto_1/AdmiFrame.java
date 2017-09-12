@@ -32,10 +32,10 @@ public class AdmiFrame extends JFrame {
  
     private String Cash[] = {"Pro-Pisto", "Cahs-Money"};
 
-    public AdmiFrame() {
+    public void AdmiFrame() {
 
             
-                setSize(600, 600);
+        setSize(600, 600);
         setTitle("Administracion");
         JScrollPane sp = new JScrollPane(tbtTabla);
         getContentPane().add(sp);
@@ -85,18 +85,27 @@ public class AdmiFrame extends JFrame {
             }
 
             private void AgregarActionPerformed(ActionEvent evt) {
-                int cont = 0;
-                String nombre = txUsuario.getText();
-                String Deposito = txUsuario.getText();
-                String empresa = cbEmpresa.getToolTipText();
-                Object acom[] = {cont++, nombre, Deposito, empresa};
-
+                
             }
 
         });
 
     }
-
+    
+public void Asignar(){
+    
+}
+public void Cajero(){
+    
+}
    
+public void Denominaciones(){
+    
+    
+}
+
+
+
+    
 
 }

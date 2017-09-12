@@ -2,7 +2,7 @@ package proyecto_1;
 
 class UsuariosPro {
 
-    private String USUARIO="INGRID";
+   public String USUARIO[]= new String[30];
     
 
 
@@ -17,7 +17,11 @@ class UsuariosPro {
     }
     
     public String getUSUARIO( ){
-    return this.USUARIO;
+        
+      
+        
+        return null;
+    
   }
  
   public void setUSUARIO(){
