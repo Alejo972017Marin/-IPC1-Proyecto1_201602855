@@ -1,37 +1,33 @@
 package proyecto_1;
 
+
+
 class UsuariosPro {
 
-   public String USUARIO[]= new String[30];
-    
+     public Object USUARIO[][] = {{"INGRID", "KARINA"}, {"SALPOR", "COLINDRES"},{"JOSE","ALEJANDRO"}};
+    //public String USUARIO[][] = new String[4][2];
 
+    public boolean UsuariosPro(Object User, Object Pas) {
+        Object USUC = "";
+        Object PASU = "";
+        for (Object Usutem[] : USUARIO) {
+            for (Object usut : Usutem) {
+                USUC = usut;
+                for (Object pasut : Usutem) {
+                    PASU = pasut;
 
-    public boolean UsuariosPro(String User) {
+                    if (User.equals(USUC) && Pas.equals(PASU)) {
+                        return true;
+                    }
 
-        if (User.equals(USUARIO)) {
-            return true;
-        } else {
-            return false;
+                }
+
+            }
+
         }
 
-    }
-    
-    public String getUSUARIO( ){
-        
-      
-        
-        return null;
-    
-  }
- 
-  public void setUSUARIO(){
-   
-      
-    this.USUARIO = USUARIO;
-  }
+        return false;
 
- 
-    
-    
+    }
 
 }
