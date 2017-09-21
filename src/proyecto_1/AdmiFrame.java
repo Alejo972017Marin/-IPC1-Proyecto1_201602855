@@ -32,9 +32,9 @@ public class AdmiFrame extends JFrame {
     int Codigo, sueldo;
     String Nombre, empresa;
     private Object datoss[][] = {{"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"}};
-    private Object cab[];
+    private Object cab[]={"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"};
     private String Cash[] = {"Pro-Pisto", "Cahs-Money"};
-
+    static String GUARDA[][]= new String[6][5];
     public AdmiFrame() {
 
         setSize(600, 600);
@@ -58,7 +58,7 @@ public class AdmiFrame extends JFrame {
         btAgregar = new JButton("Agregar");
         btBorrar = new JButton("Borrar");
         cbEmpresa = new JComboBox(Cash);
-        
+        tbtTabla= new JTable(datoss,cab);
         tbtTabla = new JTable(model);
         back = new JButton("ATRAS");
 
@@ -109,7 +109,7 @@ public class AdmiFrame extends JFrame {
         //String UsuCash[] = UC.UsuCash;
 
         UsuariosPro UPO = new UsuariosPro();
-        String GUARDA[][]= new String[6][5];
+        
         
         btAgregar.addActionListener(new ActionListener() {
           
@@ -120,7 +120,7 @@ public class AdmiFrame extends JFrame {
 
             private void btAgregarActionPerformed(ActionEvent evt) {
        
-                    GUARDA[cont][0]="0";
+                    GUARDA[cont][0]="";
                     GUARDA[cont][1]=UsuLogin.getText();
                     GUARDA[cont][2]=PasUsu.getText();
                     GUARDA[cont][3]=txUsuario.getText();
@@ -145,21 +145,17 @@ public class AdmiFrame extends JFrame {
             private void btBorrarActionPerformed(ActionEvent evt) {
             
                
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][0]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][1]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][2]);
+                        JOptionPane.showMessageDialog(null, "reg: " + GUARDA[0][0]);
+                        JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[0][1]);
+                        JOptionPane.showMessageDialog(null, "pas: " + GUARDA[0][2]);
                         JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][3]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][4]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][0]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][1]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][2]);
+                        JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[0][4]);
+                        JOptionPane.showMessageDialog(null, "reg: " + GUARDA[1][0]);
+                        JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[1][1]);
+                        JOptionPane.showMessageDialog(null, "pas: " + GUARDA[1][2]);
                         JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][3]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][4]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[2][0]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[2][1]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[2][2]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[2][3]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[2][4]);
+                        JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[1][4]);
+                
                         
 
                     
@@ -171,6 +167,7 @@ public class AdmiFrame extends JFrame {
 
         back.addActionListener(new ActionListener() {
 
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 backActionPerformed(evt);
             }
@@ -196,6 +193,7 @@ public class AdmiFrame extends JFrame {
     }
 
     public void Denominaciones() {
+        
 
     }
 

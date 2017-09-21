@@ -11,19 +11,18 @@ import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
-    public JTextField Usuario;
+    public  JTextField Usuario;
     private JLabel usuario;
     private JTextField Pasword;
     private JLabel pasword;
     private JButton Aceptar;
     private JButton Cancelar;
     public String UAPp;
-
     public  Login() {
         setSize(320, 220);
         setTitle("Login");
         setLayout(null);
-        setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
         setResizable(true);
 
         //Inicializar 
@@ -33,7 +32,7 @@ public class Login extends JFrame {
          pasword = new JLabel("PIN:");
         Aceptar = new JButton("Confirmar");
         Cancelar = new JButton("Cancelar");
-        
+     
       
 
         //agregar
@@ -61,7 +60,7 @@ public class Login extends JFrame {
         Aceptar.reshape(20, 67, 95, 30);
         Cancelar.reshape(120, 67, 95, 30);
  //igualando valores usuarip
-                         
+                 
         
         //events
         //BOTON ACEPTAR ACCION
@@ -99,7 +98,7 @@ public class Login extends JFrame {
                        
                     Usuario.setText("");
                     setVisible(false);
-                         SuperUsua Sup = new SuperUsua();
+                    SuperUsua Sup = new SuperUsua();
                     Sup.ProPisto();
 
                     Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);

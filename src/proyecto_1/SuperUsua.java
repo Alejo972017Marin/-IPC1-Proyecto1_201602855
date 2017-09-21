@@ -21,15 +21,49 @@ public class SuperUsua extends JFrame {
     private JButton TraLib;
     private JButton Retiro;
     private JButton Histor;
+      
 
     public void ProPisto() {
+        String GUARDA[][]= new String[5][5];
+        
+           
 
         setSize(600, 600);
         setTitle("Pro-Pisto");
         setLayout(null);
-        setDefaultCloseOperation(SuperUsua.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
 
+                    GUARDA[0][0]="*";
+                    GUARDA[0][1]="alejo";
+                    GUARDA[0][2]="123";
+                    GUARDA[0][3]="Jose Alejandro";
+                    GUARDA[0][4]="3000";
+                    
+                    GUARDA[1][0]="*";
+                    GUARDA[1][1]="ingrid";
+                    GUARDA[1][2]="123";
+                    GUARDA[1][3]="Colindres";
+                    GUARDA[1][4]="3000";
+                    
+                    GUARDA[2][0]="*";
+                    GUARDA[2][1]="jose";
+                    GUARDA[2][2]="123";
+                    GUARDA[2][3]="Jose Grande";
+                    GUARDA[2][4]="4000";
+                    
+                    GUARDA[3][0]="*";
+                    GUARDA[3][1]="karina";
+                    GUARDA[3][2]="123";
+                    GUARDA[3][3]="Karina Salpor";
+                    GUARDA[3][4]="6000";
+                    
+                    GUARDA[4][0]="*";
+                    GUARDA[4][1]="silvia";
+                    GUARDA[4][2]="123";
+                    GUARDA[4][3]="Silvia Marleny";
+                    GUARDA[4][4]="500";
+        
         SaldoA = new JButton("Sado Actual");
         TraEst = new JButton("Transferencias a Estudiantes");
         TraLib = new JButton("Transferencias Libres");
@@ -85,11 +119,14 @@ public class SuperUsua extends JFrame {
 
             private void SaldoAActionPerformed(ActionEvent evt) {
 
-                if (uap.equals("INGRID")) {
-                    JOptionPane.showMessageDialog(null, "PINCHE PUTO 10000 quetzales");
-
-                } else {
-                    JOptionPane.showMessageDialog(null, " Usuario:" + uap);
+                for (int i = 0; i < 5; i++) {
+                    
+                    if (GUARDA[i][1].equals(log.Usuario.getText())) {
+                        
+                        JOptionPane.showMessageDialog(null,"Su Saldo es de " + GUARDA[i][4]);
+                        
+                    }
+                    
                 }
 
             }
@@ -97,7 +134,7 @@ public class SuperUsua extends JFrame {
         });
 
         back.addActionListener(new ActionListener() {
-
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 backActionPerformed(evt);
             }
@@ -112,13 +149,15 @@ public class SuperUsua extends JFrame {
 
     }
         //**********************************************************************************************************************************************************
-
+    
+   
+     
     public void CashMoney() {
 
         setSize(600, 600);
         setTitle("Cash Money");
         setLayout(null);
-        setDefaultCloseOperation(SuperUsua.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
 
         SaldoA = new JButton("Sado Actual");
@@ -184,7 +223,7 @@ public class SuperUsua extends JFrame {
         setSize(600, 600);
         setTitle("Super Usuario");
         setLayout(null);
-        setDefaultCloseOperation(SuperUsua.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
 
         Admin = new JButton("Administrar");
