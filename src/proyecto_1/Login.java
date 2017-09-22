@@ -17,7 +17,7 @@ public class Login extends JFrame {
     private JLabel pasword;
     private JButton Aceptar;
     private JButton Cancelar;
-    public String UAPp;
+    public static String UA;
     public  Login() {
         setSize(320, 220);
         setTitle("Login");
@@ -26,7 +26,7 @@ public class Login extends JFrame {
         setResizable(true);
 
         //Inicializar 
-        Usuario = new JTextField(10);
+        Usuario = new JTextField(UA);
         usuario = new JLabel("USUARIO:");
          Pasword = new JTextField(10);
          pasword = new JLabel("PIN:");
@@ -71,6 +71,7 @@ public class Login extends JFrame {
             }
 
             private void AceptarActionPerformed(ActionEvent evt) {
+                UA=Usuario.getText();
                 if (Usuario.getText().equals("")) {
 
                     JOptionPane.showMessageDialog(null, "Introdusca su Usuario ");
@@ -125,7 +126,7 @@ public class Login extends JFrame {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña invalido");
                     return;
                 }
-
+                
                 //QQQQQQ
             }
 

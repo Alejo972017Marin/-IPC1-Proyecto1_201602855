@@ -14,7 +14,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 public class AdmiFrame extends JFrame {
-    DefaultTableModel model= new DefaultTableModel();
+
+    DefaultTableModel model = new DefaultTableModel();
     private JLabel lbUsuario;
     private JLabel lbDeposito;
     private JLabel usuLogin;
@@ -28,13 +29,14 @@ public class AdmiFrame extends JFrame {
     private JButton btBorrar;
     JTable tbtTabla;
     private JButton back;
-    int cont=0;
+    int cont = 0;
     int Codigo, sueldo;
     String Nombre, empresa;
     private Object datoss[][] = {{"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"}};
-    private Object cab[]={"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"};
+    private Object cab[] = {"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"};
     private String Cash[] = {"Pro-Pisto", "Cahs-Money"};
-    static String GUARDA[][]= new String[6][5];
+    static String GUARDA[][] = new String[10][5];
+    
     public AdmiFrame() {
 
         setSize(600, 600);
@@ -58,7 +60,7 @@ public class AdmiFrame extends JFrame {
         btAgregar = new JButton("Agregar");
         btBorrar = new JButton("Borrar");
         cbEmpresa = new JComboBox(Cash);
-        tbtTabla= new JTable(datoss,cab);
+        tbtTabla = new JTable(datoss, cab);
         tbtTabla = new JTable(model);
         back = new JButton("ATRAS");
 
@@ -68,7 +70,7 @@ public class AdmiFrame extends JFrame {
         model.addColumn("Usuario");
         model.addColumn("Contraceña");
         this.tbtTabla.setModel(model);
-        
+
         add(lbUsuario);
         add(txUsuario);
         add(lbDeposito);
@@ -108,33 +110,33 @@ public class AdmiFrame extends JFrame {
         // UsuariosCash UC = new UsuariosCash();
         //String UsuCash[] = UC.UsuCash;
 
+        
+        //uslp,pasp,dep,usp
         UsuariosPro UPO = new UsuariosPro();
-        
-        
+
         btAgregar.addActionListener(new ActionListener() {
-          
+
             @Override
             public void actionPerformed(ActionEvent evt) {
                 btAgregarActionPerformed(evt);
             }
 
             private void btAgregarActionPerformed(ActionEvent evt) {
-       
-                    GUARDA[cont][0]="";
-                    GUARDA[cont][1]=UsuLogin.getText();
-                    GUARDA[cont][2]=PasUsu.getText();
-                    GUARDA[cont][3]=txUsuario.getText();
-                    GUARDA[cont][4]=txDeposito.getText();
-                    model.addRow(GUARDA);      
-                
+
+                GUARDA[cont][0] = "";
+                GUARDA[cont][1] = UsuLogin.getText();
+                GUARDA[cont][2] = PasUsu.getText();
+                GUARDA[cont][3] = txUsuario.getText() ;
+                GUARDA[cont][4] = txDeposito.getText();
+                model.addRow(GUARDA);
 
                 cont++;
+
             }
-            
 
         });
-       
-       
+        
+
         btBorrar.addActionListener(new ActionListener() {
 
             @Override
@@ -143,23 +145,17 @@ public class AdmiFrame extends JFrame {
             }
 
             private void btBorrarActionPerformed(ActionEvent evt) {
-            
-               
-                        JOptionPane.showMessageDialog(null, "reg: " + GUARDA[0][0]);
-                        JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[0][1]);
-                        JOptionPane.showMessageDialog(null, "pas: " + GUARDA[0][2]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][3]);
-                        JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[0][4]);
-                        JOptionPane.showMessageDialog(null, "reg: " + GUARDA[1][0]);
-                        JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[1][1]);
-                        JOptionPane.showMessageDialog(null, "pas: " + GUARDA[1][2]);
-                        JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][3]);
-                        JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[1][4]);
-                
-                        
 
-                    
-                
+                JOptionPane.showMessageDialog(null, "reg: " + GUARDA[0][0]);
+                JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[0][1]);
+                JOptionPane.showMessageDialog(null, "pas: " + GUARDA[0][2]);
+                JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][3]);
+                JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[0][4]);
+                JOptionPane.showMessageDialog(null, "reg: " + GUARDA[1][0]);
+                JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[1][1]);
+                JOptionPane.showMessageDialog(null, "pas: " + GUARDA[1][2]);
+                JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][3]);
+                JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[1][4]);
 
             }
 
@@ -174,10 +170,9 @@ public class AdmiFrame extends JFrame {
 
             private void backActionPerformed(ActionEvent evt) {
 
-                setVisible(false); 
-                new Login().setVisible(true); 
-                
-                
+                setVisible(false);
+                new Login().setVisible(true);
+
             }
 
         });
@@ -193,7 +188,6 @@ public class AdmiFrame extends JFrame {
     }
 
     public void Denominaciones() {
-        
 
     }
 
