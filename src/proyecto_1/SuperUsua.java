@@ -89,7 +89,7 @@ public class SuperUsua extends JFrame {
         Retiro.reshape(20, 170, 400, 50);
         Histor.reshape(20, 220, 400, 50);
         back.reshape(120, 420, 100, 20);
-        Imagen.reshape(500,400,300,300);
+        Imagen.reshape(600,200,400,400);
         ImageIcon imagen = new ImageIcon("src/proyecto_1/ProPisto.jpg");
         Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_DEFAULT));
         Imagen.setIcon(icono);
@@ -256,6 +256,15 @@ public class SuperUsua extends JFrame {
         Retiro.reshape(20, 170, 400, 50);
         Histor.reshape(20, 220, 400, 50);
         back.reshape(120, 420, 100, 20);
+        Imagen= new JLabel();
+        add(Imagen);
+        
+        Imagen.reshape(600,200,400,400);
+        ImageIcon imagen = new ImageIcon("src/proyecto_1/CashMoney.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_DEFAULT));
+        Imagen.setIcon(icono);
+        this.repaint();
+        
         
                 SaldoA.addActionListener(new ActionListener() {
 
