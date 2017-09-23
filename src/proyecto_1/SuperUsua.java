@@ -412,7 +412,15 @@ public class SuperUsua extends JFrame {
         Desig.reshape(20, 120, 400, 50);
         Cajero.reshape(20, 170, 400, 50);
         back.reshape(120, 420, 100, 20);
-
+        Imagen= new JLabel();
+        add(Imagen);
+        
+        Imagen.reshape(600,200,600,400);
+        ImageIcon imagen = new ImageIcon("src/proyecto_1/Super.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_DEFAULT));
+        Imagen.setIcon(icono);
+        this.repaint();
+        
         //eventos
         Admin.addActionListener(new ActionListener() {
 
