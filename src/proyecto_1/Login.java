@@ -1,5 +1,6 @@
 package proyecto_1;
 
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -87,10 +88,11 @@ public class Login extends JFrame {
                     setVisible(false);
                     SuperUsua Sup = new SuperUsua();
                     Sup.SUperUsuario();
-
+                    
                     Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Sup.setVisible(true);
-
+                    AudioClip sonido;
+                    sonido = java.applet.Applet.newAudioClip(getClass().getResource(UA));
                     return;
                 }
 
@@ -128,6 +130,7 @@ public class Login extends JFrame {
                 }
                 
                 //QQQQQQ
+                
             }
 
         });

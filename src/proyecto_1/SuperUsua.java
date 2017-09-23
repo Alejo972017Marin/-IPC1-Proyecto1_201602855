@@ -1,10 +1,12 @@
 package proyecto_1;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class SuperUsua extends JFrame {
@@ -21,7 +23,7 @@ public class SuperUsua extends JFrame {
     private JButton TraLib;
     private JButton Retiro;
     private JButton Histor;
-      
+      private JPanel jPanel1;
 
     public void ProPisto() {
         String GUARDA[][]= new String[5][5];
@@ -33,9 +35,13 @@ public class SuperUsua extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
+    //Color JFrame
+        this.getContentPane().setBackground(Color.GREEN);
 
-            
+        //Color JPanel
         
+            
+        jPanel1 = new JPanel();
         SaldoA = new JButton("Sado Actual");
         TraEst = new JButton("Transferencias a Estudiantes");
         TraLib = new JButton("Transferencias Libres");
@@ -44,6 +50,7 @@ public class SuperUsua extends JFrame {
         back = new JButton("ATRAS");
 
         //add
+        add(jPanel1);
         add(SaldoA);
         add(TraEst);
         add(TraLib);
@@ -51,6 +58,7 @@ public class SuperUsua extends JFrame {
         add(Histor);
         add(back);
         //prop
+        jPanel1.setBackground(Color.GREEN);
         SaldoA.setHorizontalTextPosition(SwingConstants.CENTER);
         SaldoA.setVerticalTextPosition(SwingConstants.BOTTOM);
 
@@ -104,6 +112,73 @@ public class SuperUsua extends JFrame {
             }
 
         });
+        
+     TraEst.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             TraEstActionPerformed(evt);
+         }
+         private void TraEstActionPerformed(ActionEvent evt){
+                    setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.TransferenciaStudent();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+             
+         }
+         
+     });
+     TraLib.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             TraLibActionPerformed(evt);
+         }
+         private void TraLibActionPerformed(ActionEvent evt){
+              setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.TransferenciaLibre();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+             
+         }
+     });
+     
+     Retiro.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             RetiroActionPerformed(evt);
+             
+         }
+         private void RetiroActionPerformed(ActionEvent evt){
+              setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.Retiro();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+         }
+         
+     });
+        
+     Histor.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             HistorActionPerformed(evt);
+         }
+         private void HistorActionPerformed(ActionEvent evt){
+              setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.Historial();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+             
+         }
+     });
+    
+        
 
         back.addActionListener(new ActionListener() {
             @Override
@@ -131,7 +206,7 @@ public class SuperUsua extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
-
+        this.getContentPane().setBackground(Color.GRAY);
         SaldoA = new JButton("Sado Actual");
         TraEst = new JButton("Transferencias a Estudiantes");
         TraLib = new JButton("Transferencias Libres");

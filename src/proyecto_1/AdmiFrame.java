@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-public class AdmiFrame extends JFrame {
+public class AdmiFrame extends JFrame{
 
     DefaultTableModel model = new DefaultTableModel();
     private JLabel lbUsuario;
@@ -120,18 +120,17 @@ public class AdmiFrame extends JFrame {
             public void actionPerformed(ActionEvent evt) {
                 btAgregarActionPerformed(evt);
             }
-
+            
             private void btAgregarActionPerformed(ActionEvent evt) {
-
+                
                 GUARDA[cont][0] = "";
                 GUARDA[cont][1] = UsuLogin.getText();
                 GUARDA[cont][2] = PasUsu.getText();
                 GUARDA[cont][3] = txUsuario.getText() ;
                 GUARDA[cont][4] = txDeposito.getText();
                 model.addRow(GUARDA);
-
+                
                 cont++;
-
             }
 
         });
@@ -151,11 +150,11 @@ public class AdmiFrame extends JFrame {
                 JOptionPane.showMessageDialog(null, "pas: " + GUARDA[0][2]);
                 JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][3]);
                 JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[0][4]);
-                JOptionPane.showMessageDialog(null, "reg: " + GUARDA[1][0]);
-                JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[1][1]);
-                JOptionPane.showMessageDialog(null, "pas: " + GUARDA[1][2]);
-                JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[1][3]);
-                JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[1][4]);
+                JOptionPane.showMessageDialog(null, "reg: " + GUARDA[0][0]);
+                JOptionPane.showMessageDialog(null, "UsuLog: " + GUARDA[0][1]);
+                JOptionPane.showMessageDialog(null, "pas: " + GUARDA[0][2]);
+                JOptionPane.showMessageDialog(null, "Usuario: " + GUARDA[0][3]);
+                JOptionPane.showMessageDialog(null, "Deposito: " + GUARDA[0][4]);
 
             }
 

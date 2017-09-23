@@ -2,24 +2,16 @@ package proyecto_1;
 
 
 
-class UsuariosPro extends AdmiFrame{
-
-    UsuariosPro UPO= new UsuariosPro();
-    
-    // public Object USUARIO[][] = {{"alejo","123"}, {"ingrid", "123"},{"silvia","123"}};
+class UsuariosPro{
+     public Object USUARIOP[][] = {{"alejo","123"}, {"ingrid", "123"},{"silvia","123"},{"jose","123"}};
     //public String USUARIO[][] = new String[4][2];
-     public Object USUARIOP[][]= new Object[10][2];
-    int contador=0;
+
+    // public static Object USUARIOP[][]= new Object[10][5];
     
     public boolean UsuariosPro(Object User, Object Pas) {
         
-    
-        for (int i = 0; i < 10; i++) {
-           USUARIOP[contador][0] = GUARDA[contador][1] ;
-           USUARIOP[contador][1] = GUARDA[contador][2] ;
-           contador++;
-        }
-               
+
+        
         Object USUC = "";
         Object PASU = "";
         for (Object Usutem[] : USUARIOP) {
