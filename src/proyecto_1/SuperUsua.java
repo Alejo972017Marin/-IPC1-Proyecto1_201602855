@@ -1,16 +1,20 @@
 package proyecto_1;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class SuperUsua extends JFrame {
-
+    
     private JButton Admin;
     private JButton Asig;
     private JButton Desig;
@@ -29,23 +33,18 @@ public class SuperUsua extends JFrame {
       UsuariosPro UP = new UsuariosPro();
       Login log = new Login();
       AdmiFrame ad = new AdmiFrame();
+      private JLabel Imagen;
 
     public void ProPisto() {
-        String GUARDA[][]= new String[5][5];
-        
-           
+
 
         setSize(600, 600);
         setTitle("Pro-Pisto");
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
-    //Color JFrame
         this.getContentPane().setBackground(Color.GREEN);
 
-        //Color JPanel
-        
-            
         jPanel1 = new JPanel();
         SaldoA = new JButton("Sado Actual");
         TraEst = new JButton("Transferencias a Estudiantes");
@@ -53,7 +52,7 @@ public class SuperUsua extends JFrame {
         Retiro = new JButton("Retiro");
         Histor = new JButton("Historial");
         back = new JButton("ATRAS");
-
+        Imagen= new JLabel();
         //add
         add(jPanel1);
         add(SaldoA);
@@ -62,6 +61,7 @@ public class SuperUsua extends JFrame {
         add(Retiro);
         add(Histor);
         add(back);
+        add(Imagen);
         //prop
         jPanel1.setBackground(Color.GREEN);
         SaldoA.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -89,7 +89,11 @@ public class SuperUsua extends JFrame {
         Retiro.reshape(20, 170, 400, 50);
         Histor.reshape(20, 220, 400, 50);
         back.reshape(120, 420, 100, 20);
-
+        Imagen.reshape(500,400,300,300);
+        ImageIcon imagen = new ImageIcon("src/proyecto_1/ProPisto.jpg");
+        Icon icono = new ImageIcon(imagen.getImage().getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_DEFAULT));
+        Imagen.setIcon(icono);
+        this.repaint();
         
         String uap = log.Usuario.getText();
         

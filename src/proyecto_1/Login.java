@@ -72,6 +72,9 @@ public class Login extends JFrame {
             }
 
             private void AceptarActionPerformed(ActionEvent evt) {
+                 AudioClip sonido;
+                   sonido = java.applet.Applet.newAudioClip(getClass().getResource("/proyecto_1/5966.mp3"));
+                
                 UA=Usuario.getText();
                 if (Usuario.getText().equals("")) {
 
@@ -91,8 +94,7 @@ public class Login extends JFrame {
                     
                     Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Sup.setVisible(true);
-                  //  AudioClip sonido;
-                    //sonido = java.applet.Applet.newAudioClip(getClass().getResource(UA));
+                  
                     return;
                 }
 

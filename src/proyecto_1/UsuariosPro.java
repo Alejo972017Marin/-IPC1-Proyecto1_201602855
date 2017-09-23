@@ -8,7 +8,7 @@ class UsuariosPro extends Transacciones{
         
     public boolean SuperUsuario(String User, String Pas){
         
-        return User.equals("IPC1")&& Pas.equals("IPC1"); 
+        return User.equals("ipc1Admin")&& Pas.equals("aux1"); 
         
         
     }
