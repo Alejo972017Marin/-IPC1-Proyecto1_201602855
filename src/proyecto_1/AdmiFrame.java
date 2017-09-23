@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-public class AdmiFrame extends JFrame{
+public class AdmiFrame extends Transacciones{
 
     DefaultTableModel model = new DefaultTableModel();
     private JLabel lbUsuario;
@@ -25,6 +25,8 @@ public class AdmiFrame extends JFrame{
     public JTextField UsuLogin;
     public JTextField PasUsu;
     private JComboBox cbEmpresa;
+    private JLabel ListaEst;
+    private JTextField listaest;
     private JButton btAgregar;
     private JButton btBorrar;
     JTable tbtTabla;
@@ -35,9 +37,9 @@ public class AdmiFrame extends JFrame{
     private Object datoss[][] = {{"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"}};
     private Object cab[] = {"Codigo", "Nombre", "Deposito", "Empresa", "UsuarioLogin", "ContraceñaLogin"};
     private String Cash[] = {"Pro-Pisto", "Cahs-Money"};
-    static String GUARDA[][] = new String[10][5];
     
-    public AdmiFrame() {
+    
+    public void AdmiFrame() {
 
         setSize(600, 600);
         setTitle("Administracion");
@@ -84,7 +86,8 @@ public class AdmiFrame extends JFrame{
         add(tbtTabla);
         add(cbEmpresa);
         add(back);
-
+      
+        
         btAgregar.setHorizontalTextPosition(SwingConstants.CENTER);
         btAgregar.setVerticalTextPosition(SwingConstants.BOTTOM);
 
@@ -123,7 +126,7 @@ public class AdmiFrame extends JFrame{
             
             private void btAgregarActionPerformed(ActionEvent evt) {
                 
-                GUARDA[cont][0] = "";
+                GUARDA[cont][0] = (String) cbEmpresa.getSelectedItem();
                 GUARDA[cont][1] = UsuLogin.getText();
                 GUARDA[cont][2] = PasUsu.getText();
                 GUARDA[cont][3] = txUsuario.getText() ;
@@ -179,15 +182,170 @@ public class AdmiFrame extends JFrame{
     }
 
     public void Asignar() {
+        
+        setSize(320, 400);
+        setTitle("Asignar Listado De Estudiantes");
+        setLayout(null);
+        setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
+        setResizable(true);
+        ListaEst = new JLabel("Introdusca Estudiante");
+        listaest = new JTextField("");
+        btAgregar = new JButton("Agregar A lista");
+        
+        add(ListaEst);
+        add(listaest);
+        add(btAgregar);
+        
+        ListaEst.reshape(20,20,150,40);
+        listaest.reshape(250,20,100,40);
+       btAgregar.reshape(20,40,100,40);
+        
+            btAgregar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                btAgregarActionPerformed(evt);
+            }
+            
+            private void btAgregarActionPerformed(ActionEvent evt) {
+                
+                Listado[cont]= listaest.getText();
+                
+                cont++;
+            }
+
+        });
+        
+            
+        back = new JButton("ATRAS");
+        add(back);
+        back.setHorizontalTextPosition(SwingConstants.CENTER);
+        back.setVerticalTextPosition(SwingConstants.BOTTOM);
+        back.reshape(120, 420, 100, 20);
+                back.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+
+            private void backActionPerformed(ActionEvent evt) {
+
+                setVisible(false);
+                new Login().setVisible(true);
+
+            }
+
+        });
+        
 
     }
 
     public void Cajero() {
-
+// cantidad de dinero que queda en los cajeros
     }
-
+    
+    private JLabel de1,de2,de3,de4,de5,de6;
+    private JTextField De1,De2,De3,De4,De5,De6;
+    private JButton Confirmar;
+    
     public void Denominaciones() {
+         setSize(320, 400);
+        setTitle("Asignar Listado De Estudiantes");
+        setLayout(null);
+        setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
+        setResizable(true);
+        
+        de1 = new JLabel("Valor 1");
+        de2 = new JLabel("Valor 2");
+        de3 = new JLabel("Valor 3");
+        de4 = new JLabel("Valor 4");
+        de5 = new JLabel("Valor 5");
+        de6 = new JLabel("Valor 6");
+        
+        De1 = new JTextField("");
+        De2 = new JTextField("");
+        De3 = new JTextField("");
+        De4 = new JTextField("");
+        De5 = new JTextField("");
+        De6 = new JTextField("");
+        
+        Confirmar = new JButton("Confirmar");
+        
+        add(de1);
+        add(de2);
+        add(de3);
+        add(de4);
+        add(de5);
+        add(de6);
+        add(De1);
+        add(De2);
+        add(De3);
+        add(De4);
+        add(De5);
+        add(De6); 
+        add(Confirmar);
+        
+        de1.reshape(20,20,100,30);
+        de2.reshape(20,60,100,30);
+        de3.reshape(20,100,100,30);
+        de4.reshape(20,140,100,30);
+        de5.reshape(20,180,100,30);
+        de6.reshape(20,220,100,30);
+        
+        De1.reshape(150,20,100,30);
+        De2.reshape(150,60,100,30);
+        De3.reshape(150,100,100,30);
+        De4.reshape(150,140,100,30);
+        De5.reshape(150,180,100,30);
+        De6.reshape(150,220,100,30);
+        
+        Confirmar.reshape(250,100,100,40);
+        
+        Confirmar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                ConfirmarActionPerformed(evt);
+            }
+            private void ConfirmarActionPerformed(ActionEvent evt){
+                
+                DE1 = De1.getText();
+                DE2 = De2.getText();
+                DE3 = De3.getText();
+                DE4 = De4.getText();
+                DE5 = De5.getText();
+                DE6 = De6.getText();
+                
+            }
+            });
+        
+        
+                back = new JButton("ATRAS");
+        add(back);
+        back.setHorizontalTextPosition(SwingConstants.CENTER);
+        back.setVerticalTextPosition(SwingConstants.BOTTOM);
+        back.reshape(120, 420, 100, 20);
+                back.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+
+            private void backActionPerformed(ActionEvent evt) {
+
+                setVisible(false);
+                new Login().setVisible(true);
+
+            }
+
+        });
+        
+        
 
     }
+    
+    
+       
 
 }

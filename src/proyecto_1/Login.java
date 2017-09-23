@@ -81,9 +81,9 @@ public class Login extends JFrame {
                 }
 
                 //validadndo
-                SuperUsuario sup = new SuperUsuario();
-
-                if (sup.SuperUsuario(Usuario.getText(),Pasword.getText())) {
+                
+                UsuariosPro UP = new UsuariosPro();
+                if (UP.SuperUsuario(Usuario.getText(),Pasword.getText())) {
                     Usuario.setText("");
                     setVisible(false);
                     SuperUsua Sup = new SuperUsua();
@@ -91,12 +91,12 @@ public class Login extends JFrame {
                     
                     Sup.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Sup.setVisible(true);
-                    AudioClip sonido;
-                    sonido = java.applet.Applet.newAudioClip(getClass().getResource(UA));
+                  //  AudioClip sonido;
+                    //sonido = java.applet.Applet.newAudioClip(getClass().getResource(UA));
                     return;
                 }
 
-                UsuariosPro UP = new UsuariosPro();
+                
                 if (UP.UsuariosPro(Usuario.getText(),Pasword.getText())) {
                        
                     Usuario.setText("");
@@ -110,8 +110,8 @@ public class Login extends JFrame {
                     return;
                 }
 
-                UsuariosCash UC = new UsuariosCash();
-                if (UC.UsuariosCash(Usuario.getText(), Pasword.getText())) {
+              
+                if (UP.UsuariosCash(Usuario.getText(), Pasword.getText())) {
 
                     Usuario.setText("");
                     setVisible(false);

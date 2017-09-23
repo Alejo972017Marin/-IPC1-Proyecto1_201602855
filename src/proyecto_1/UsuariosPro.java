@@ -2,11 +2,17 @@ package proyecto_1;
 
 
 
-class UsuariosPro{
-     public Object USUARIOP[][] = {{"alejo","123"}, {"ingrid", "123"},{"silvia","123"},{"jose","123"}};
-    //public String USUARIO[][] = new String[4][2];
+class UsuariosPro extends Transacciones{
+    
+    
+        
+    public boolean SuperUsuario(String User, String Pas){
+        
+        return User.equals("IPC1")&& Pas.equals("IPC1"); 
+        
+        
+    }
 
-    // public static Object USUARIOP[][]= new Object[10][5];
     
     public boolean UsuariosPro(Object User, Object Pas) {
         
@@ -14,16 +20,54 @@ class UsuariosPro{
         
         Object USUC = "";
         Object PASU = "";
-        for (Object Usutem[] : USUARIOP) {
+        for (Object Usutem[] : GUARDA) {
             for (Object usut : Usutem) {
                 USUC = usut;
     
                 for (Object pasut : Usutem) {
                     PASU = pasut;
 
-                    if (User.equals(USUC) && Pas.equals(PASU)) {
+                             for(Object empt:Usutem){
+                               if (User.equals(USUC) && Pas.equals(PASU)&& empt.equals("Pro-Pisto")) {
                         return true;
                     }
+               }
+
+                }
+
+            }
+
+        }
+
+        return false;
+
+    }
+    
+   
+
+    public boolean UsuariosCash(String User, String Pas) {
+
+        Object USUC = "";
+        Object PASU = "";
+        Object EmpT ="";
+    
+        
+        for (Object Usutem[] : GUARDA) {
+            for (Object usut : Usutem) {
+                USUC = usut;
+    
+                for (Object pasut : Usutem) {
+                    PASU = pasut;
+                    
+                    for(Object empt:Usutem){
+                               if (User.equals(USUC) && Pas.equals(PASU)&& empt.equals("Cahs-Money")) {
+                        return true;
+                    }
+               }
+                  
+                   
+//"Pro-Pisto", "Cahs-Money"
+                   
 
                 }
 
@@ -37,6 +81,7 @@ class UsuariosPro{
     
     
     
+  
     
 
 }

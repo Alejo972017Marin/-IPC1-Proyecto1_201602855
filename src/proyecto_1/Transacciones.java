@@ -25,7 +25,6 @@ public class Transacciones extends JFrame {
     private JLabel Hora;
 
     private JButton back;
-    String GUARDA[][] = new String[5][5];
     private JButton Efec1;
     private JButton Efec2;
     private JButton Efec3;
@@ -33,55 +32,31 @@ public class Transacciones extends JFrame {
     private JButton Efec5;
     private JButton Efec6;
     private JComboBox Lista;
-    private String Listado[] = {"Seleccione", "Est1", "Est2", "Est3", "Est4", "Est5", "Est6"};
+    static String Listado[] = new String[6];
+    static String GUARDA[][] = new String[10][5];
+    Login Log = new Login();
+    static String DE1="";
+    static String DE2="";
+    static String DE3="";
+    static String DE4="";
+    static String DE5="";
+    static String DE6="";
+    
 
     public void SaldoActual() {
 
-        GUARDA[0][0] = "*";
-        GUARDA[0][1] = "alejo";
-        GUARDA[0][2] = "123";
-        GUARDA[0][3] = "Jose Alejandro";
-        GUARDA[0][4] = "3000";
-
-        GUARDA[1][0] = "*";
-        GUARDA[1][1] = "ingrid";
-        GUARDA[1][2] = "123";
-        GUARDA[1][3] = "Colindres";
-        GUARDA[1][4] = "3000";
-
-        GUARDA[2][0] = "*";
-        GUARDA[2][1] = "jose";
-        GUARDA[2][2] = "123";
-        GUARDA[2][3] = "Jose Grande";
-        GUARDA[2][4] = "4000";
-
-        GUARDA[3][0] = "*";
-        GUARDA[3][1] = "karina";
-        GUARDA[3][2] = "123";
-        GUARDA[3][3] = "Karina Salpor";
-        GUARDA[3][4] = "6000";
-
-        GUARDA[4][0] = "*";
-        GUARDA[4][1] = "silvia";
-        GUARDA[4][2] = "123";
-        GUARDA[4][3] = "Silvia Marleny";
-        GUARDA[4][4] = "500";
-
-        Date Hor;
-        Calendar cal;
         setSize(600, 600);
         setTitle("Saldo Actual");
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
-        Hor = new Date();
         DateFormat Horas = new SimpleDateFormat("hh:mm:ss   dd/MM/yyyy");
         lbsaldo = new JLabel("Saldo: ");
         Saldo = new JLabel("");
         lbusua = new JLabel("Usuario: ");
         Usua = new JLabel("");
         lbemp = new JLabel("Empresa: ");
-        Emp = new JLabel("ProPisto");
+        Emp = new JLabel("");
         back = new JButton("TRANSACCION NUEVA");
         Hora = new JLabel(Horas.format(new Date()));
         add(Saldo);
@@ -92,13 +67,11 @@ public class Transacciones extends JFrame {
         add(lbusua);
         add(lbemp);
         add(Hora);
-        SuperUsua SUP = new SuperUsua();
-        Login Log = new Login();
 
         lbsaldo.reshape(200, 100, 100, 40);
-        Saldo.reshape(300, 100, 100, 40);
+        Saldo.reshape(300, 100, 1000, 40);
         lbusua.reshape(200, 200, 100, 40);
-        Usua.reshape(300, 200, 100, 40);
+        Usua.reshape(300, 200, 1000, 40);
         lbemp.reshape(200, 300, 100, 40);
         Emp.reshape(300, 300, 100, 40);
         back.reshape(200, 420, 300, 20);
@@ -106,13 +79,13 @@ public class Transacciones extends JFrame {
         back.setHorizontalTextPosition(SwingConstants.CENTER);
         back.setVerticalTextPosition(SwingConstants.BOTTOM);
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
 
-            if (GUARDA[i][1].equals(Log.Usuario.getText())) {
+            if (Log.Usuario.getText().equals(GUARDA[i][1])) {
 
-                Usua.setText(GUARDA[i][1]);
+                Usua.setText(GUARDA[i][3]);
                 Saldo.setText(GUARDA[i][4]);
-
+                Emp.setText(GUARDA[i][0]);
             }
 
         }
@@ -139,12 +112,12 @@ public class Transacciones extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
-        Efec1 = new JButton("50");
-        Efec2 = new JButton("100");
-        Efec3 = new JButton("200");
-        Efec4 = new JButton("300");
-        Efec5 = new JButton("400");
-        Efec6 = new JButton("500");
+        Efec1 = new JButton(DE1);
+        Efec2 = new JButton(DE2);
+        Efec3 = new JButton(DE3);
+        Efec4 = new JButton(DE4);
+        Efec5 = new JButton(DE5);
+        Efec6 = new JButton(DE6);
         Lista = new JComboBox(Listado);
         back = new JButton("TRANSACCION NUEVA");
 
@@ -165,7 +138,7 @@ public class Transacciones extends JFrame {
         Efec6.reshape(600, 400, 200, 50);
         Lista.reshape(200, 100, 200, 50);
         back.reshape(200, 500, 100, 20);
-         Efec1.addActionListener(new ActionListener() {
+        Efec1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 Efec1ActionPerformed(evt);
@@ -173,62 +146,175 @@ public class Transacciones extends JFrame {
             }
 
             private void Efec1ActionPerformed(ActionEvent evt) {
-                
+
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        
+                        if (Log.Usuario.getText().equals(GUARDA[i][1]) && Lista.getSelectedItem().equals(GUARDA[j][1])) {
+
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE1);
+                            GUARDA[i][4] = "";
+                            int Res2= Integer.parseInt(GUARDA[j][4])+Integer.parseInt(DE1);
+                            GUARDA[j][4]="";
+                            String RE = Integer.toString(Res);
+                            String RE2 = Integer.toString(Res2);
+                            GUARDA[i][4] = RE;
+                            GUARDA[j][4]=RE2;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]+GUARDA[j][4]);
+                        }
+                    }
+
+                }
 
             }
         });
         Efec2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Efec1ActionPerformed(evt);
+                Efec2ActionPerformed(evt);
 
             }
 
-            private void Efec1ActionPerformed(ActionEvent evt) {
+            private void Efec2ActionPerformed(ActionEvent evt) {
+                
+                                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        
+                        if (Log.Usuario.getText().equals(GUARDA[i][1]) && Lista.getSelectedItem().equals(GUARDA[j][1])) {
+
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE2);
+                            GUARDA[i][4] = "";
+                            int Res2= Integer.parseInt(GUARDA[j][4])+Integer.parseInt(DE2);
+                            GUARDA[j][4]="";
+                            String RE = Integer.toString(Res);
+                            String RE2 = Integer.toString(Res2);
+                            GUARDA[i][4] = RE;
+                            GUARDA[j][4]=RE2;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]+GUARDA[j][4]);
+                        }
+                    }
+
+                }
 
             }
         });
         Efec3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Efec1ActionPerformed(evt);
+                Efec3ActionPerformed(evt);
 
             }
 
-            private void Efec1ActionPerformed(ActionEvent evt) {
+            private void Efec3ActionPerformed(ActionEvent evt) {
+                
+                                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        
+                        if (Log.Usuario.getText().equals(GUARDA[i][1]) && Lista.getSelectedItem().equals(GUARDA[j][1])) {
+
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE3);
+                            GUARDA[i][4] = "";
+                            int Res2= Integer.parseInt(GUARDA[j][4])+Integer.parseInt(DE3);
+                            GUARDA[j][4]="";
+                            String RE = Integer.toString(Res);
+                            String RE2 = Integer.toString(Res2);
+                            GUARDA[i][4] = RE;
+                            GUARDA[j][4]=RE2;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]+GUARDA[j][4]);
+                        }
+                    }
+
+                }
 
             }
         });
         Efec4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Efec1ActionPerformed(evt);
+                Efec4ActionPerformed(evt);
 
             }
 
-            private void Efec1ActionPerformed(ActionEvent evt) {
+            private void Efec4ActionPerformed(ActionEvent evt) {
+                
+                                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        
+                        if (Log.Usuario.getText().equals(GUARDA[i][1]) && Lista.getSelectedItem().equals(GUARDA[j][1])) {
+
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE4);
+                            GUARDA[i][4] = "";
+                            int Res2= Integer.parseInt(GUARDA[j][4])+Integer.parseInt(DE4);
+                            GUARDA[j][4]="";
+                            String RE = Integer.toString(Res);
+                            String RE2 = Integer.toString(Res2);
+                            GUARDA[i][4] = RE;
+                            GUARDA[j][4]=RE2;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]+GUARDA[j][4]);
+                        }
+                    }
+
+                }
 
             }
         });
         Efec5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Efec1ActionPerformed(evt);
+                Efec5ActionPerformed(evt);
 
             }
 
-            private void Efec1ActionPerformed(ActionEvent evt) {
+            private void Efec5ActionPerformed(ActionEvent evt) {
+                
+                                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        
+                        if (Log.Usuario.getText().equals(GUARDA[i][1]) && Lista.getSelectedItem().equals(GUARDA[j][1])) {
+
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE5);
+                            GUARDA[i][4] = "";
+                            int Res2= Integer.parseInt(GUARDA[j][4])+Integer.parseInt(DE5);
+                            GUARDA[j][4]="";
+                            String RE = Integer.toString(Res);
+                            String RE2 = Integer.toString(Res2);
+                            GUARDA[i][4] = RE;
+                            GUARDA[j][4]=RE2;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]+GUARDA[j][4]);
+                        }
+                    }
+
+                }
 
             }
         });
         Efec6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                Efec1ActionPerformed(evt);
+                Efec6ActionPerformed(evt);
 
             }
 
-            private void Efec1ActionPerformed(ActionEvent evt) {
+            private void Efec6ActionPerformed(ActionEvent evt) {
+                
+                                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        
+                        if (Log.Usuario.getText().equals(GUARDA[i][1]) && Lista.getSelectedItem().equals(GUARDA[j][1])) {
+
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE6);
+                            GUARDA[i][4] = "";
+                            int Res2= Integer.parseInt(GUARDA[j][4])+Integer.parseInt(DE6);
+                            GUARDA[j][4]="";
+                            String RE = Integer.toString(Res);
+                            String RE2 = Integer.toString(Res2);
+                            GUARDA[i][4] = RE;
+                            GUARDA[j][4]=RE2;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]+GUARDA[j][4]);
+                        }
+                    }
+
+                }
 
             }
         });
@@ -255,12 +341,12 @@ public class Transacciones extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
-        Efec1 = new JButton("50");
-        Efec2 = new JButton("100");
-        Efec3 = new JButton("200");
-        Efec4 = new JButton("300");
-        Efec5 = new JButton("400");
-        Efec6 = new JButton("500");
+        Efec1 = new JButton(DE1);
+        Efec2 = new JButton(DE2);
+        Efec3 = new JButton(DE3);
+        Efec4 = new JButton(DE4);
+        Efec5 = new JButton(DE5);
+        Efec6 = new JButton(DE6);
         Lista = new JComboBox(Listado);
         back = new JButton("TRANSACCION NUEVA");
 
@@ -372,12 +458,12 @@ public class Transacciones extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(SuperUsua.EXIT_ON_CLOSE);
         setResizable(true);
-        Efec1 = new JButton("50");
-        Efec2 = new JButton("100");
-        Efec3 = new JButton("200");
-        Efec4 = new JButton("300");
-        Efec5 = new JButton("400");
-        Efec6 = new JButton("500");
+        Efec1 = new JButton(DE1);
+        Efec2 = new JButton(DE2);
+        Efec3 = new JButton(DE3);
+        Efec4 = new JButton(DE4);
+        Efec5 = new JButton(DE5);
+        Efec6 = new JButton(DE6);
         back = new JButton("TRANSACCION NUEVA");
 
         add(Efec1);
@@ -396,7 +482,7 @@ public class Transacciones extends JFrame {
         Efec6.reshape(600, 400, 200, 50);
         back.reshape(200, 500, 100, 20);
 
-         Efec1.addActionListener(new ActionListener() {
+        Efec1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 Efec1ActionPerformed(evt);
@@ -404,6 +490,25 @@ public class Transacciones extends JFrame {
             }
 
             private void Efec1ActionPerformed(ActionEvent evt) {
+
+                for (int i = 0; i < 10; i++) {
+
+                    if (Log.Usuario.getText().equals(GUARDA[i][1])) {
+
+                        if (Integer.parseInt(GUARDA[i][4]) > Integer.parseInt(DE1)) {
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE1);
+                            GUARDA[i][4] = "";
+                            String RE = Integer.toString(Res);
+                            GUARDA[i][4] = RE;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]);
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Sado Insuficiente");
+                        }
+
+                    }
+
+                }
 
             }
         });
@@ -415,6 +520,23 @@ public class Transacciones extends JFrame {
             }
 
             private void Efec1ActionPerformed(ActionEvent evt) {
+                for (int i = 0; i < 10; i++) {
+
+                    if (Log.Usuario.getText().equals(GUARDA[i][1])) {
+                        if (Integer.parseInt(GUARDA[i][4]) > Integer.parseInt(DE2)) {
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE2);
+                            GUARDA[i][4] = "";
+                            String RE = Integer.toString(Res);
+                            GUARDA[i][4] = RE;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]);
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Sado Insuficiente");
+                        }
+
+                    }
+
+                }
 
             }
         });
@@ -426,6 +548,24 @@ public class Transacciones extends JFrame {
             }
 
             private void Efec1ActionPerformed(ActionEvent evt) {
+                for (int i = 0; i < 10; i++) {
+
+                    if (Log.Usuario.getText().equals(GUARDA[i][1])) {
+
+                        if (Integer.parseInt(GUARDA[i][4]) > Integer.parseInt(DE3)) {
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE1);
+                            GUARDA[i][4] = "";
+                            String RE = Integer.toString(Res);
+                            GUARDA[i][4] = RE;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]);
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Sado Insuficiente");
+                        }
+
+                    }
+
+                }
 
             }
         });
@@ -438,6 +578,24 @@ public class Transacciones extends JFrame {
 
             private void Efec1ActionPerformed(ActionEvent evt) {
 
+                for (int i = 0; i < 10; i++) {
+
+                    if (Log.Usuario.getText().equals(GUARDA[i][1])) {
+                        if (Integer.parseInt(GUARDA[i][4]) > Integer.parseInt(DE4)) {
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE4);
+                            GUARDA[i][4] = "";
+                            String RE = Integer.toString(Res);
+                            GUARDA[i][4] = RE;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]);
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Sado Insuficiente");
+                        }
+
+                    }
+
+                }
+
             }
         });
         Efec5.addActionListener(new ActionListener() {
@@ -449,6 +607,25 @@ public class Transacciones extends JFrame {
 
             private void Efec1ActionPerformed(ActionEvent evt) {
 
+                for (int i = 0; i < 10; i++) {
+
+                    if (Log.Usuario.getText().equals(GUARDA[i][1])) {
+
+                        if (Integer.parseInt(GUARDA[i][4]) > Integer.parseInt(DE5)) {
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE5);
+                            GUARDA[i][4] = "";
+                            String RE = Integer.toString(Res);
+                            GUARDA[i][4] = RE;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]);
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Sado Insuficiente");
+                        }
+
+                    }
+
+                }
+
             }
         });
         Efec6.addActionListener(new ActionListener() {
@@ -459,6 +636,25 @@ public class Transacciones extends JFrame {
             }
 
             private void Efec1ActionPerformed(ActionEvent evt) {
+
+                for (int i = 0; i < 10; i++) {
+
+                    if (Log.Usuario.getText().equals(GUARDA[i][1])) {
+
+                        if (Integer.parseInt(GUARDA[i][4]) > Integer.parseInt(DE6)) {
+                            int Res = Integer.parseInt(GUARDA[i][4]) - Integer.parseInt(DE6);
+                            GUARDA[i][4] = "";
+                            String RE = Integer.toString(Res);
+                            GUARDA[i][4] = RE;
+                            JOptionPane.showMessageDialog(null, "" + GUARDA[i][4]);
+                        } else {
+
+                            JOptionPane.showMessageDialog(null, "Sado Insuficiente");
+                        }
+
+                    }
+
+                }
 
             }
         });

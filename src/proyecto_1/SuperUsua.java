@@ -23,7 +23,12 @@ public class SuperUsua extends JFrame {
     private JButton TraLib;
     private JButton Retiro;
     private JButton Histor;
-      private JPanel jPanel1;
+    private JPanel jPanel1;
+    
+     //Instancias 
+      UsuariosPro UP = new UsuariosPro();
+      Login log = new Login();
+      AdmiFrame ad = new AdmiFrame();
 
     public void ProPisto() {
         String GUARDA[][]= new String[5][5];
@@ -85,9 +90,9 @@ public class SuperUsua extends JFrame {
         Histor.reshape(20, 220, 400, 50);
         back.reshape(120, 420, 100, 20);
 
-        Login log = new Login();
+        
         String uap = log.Usuario.getText();
-        UsuariosPro UP = new UsuariosPro();
+        
         
         
 
@@ -247,6 +252,93 @@ public class SuperUsua extends JFrame {
         Retiro.reshape(20, 170, 400, 50);
         Histor.reshape(20, 220, 400, 50);
         back.reshape(120, 420, 100, 20);
+        
+                SaldoA.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                SaldoAActionPerformed(evt);
+            }
+
+            private void SaldoAActionPerformed(ActionEvent evt) {
+                setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.SaldoActual();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+
+
+          
+
+            }
+
+        });
+        
+     TraEst.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             TraEstActionPerformed(evt);
+         }
+         private void TraEstActionPerformed(ActionEvent evt){
+                    setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.TransferenciaStudent();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+             
+         }
+         
+     });
+     TraLib.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             TraLibActionPerformed(evt);
+         }
+         private void TraLibActionPerformed(ActionEvent evt){
+              setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.TransferenciaLibre();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+             
+         }
+     });
+     
+     Retiro.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             RetiroActionPerformed(evt);
+             
+         }
+         private void RetiroActionPerformed(ActionEvent evt){
+              setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.Retiro();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+         }
+         
+     });
+        
+     Histor.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent evt){
+             HistorActionPerformed(evt);
+         }
+         private void HistorActionPerformed(ActionEvent evt){
+              setVisible(false);
+                Transacciones TR= new Transacciones();
+                TR.Historial();
+                
+                TR.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                TR.setVisible(true);
+             
+         }
+     });
 
         back.addActionListener(new ActionListener() {
 
@@ -317,12 +409,45 @@ public class SuperUsua extends JFrame {
 
             private void AdminActionPerformed(ActionEvent evt) {
                 setVisible(false);
-                AdmiFrame ad = new AdmiFrame();
+                
+                ad.AdmiFrame();
                 ad.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 ad.setVisible(true);
 
             }
 
+        });
+        
+        Asig.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                AsigActionPerformed(evt);
+                
+            }
+            private void AsigActionPerformed(ActionEvent evt){
+                
+                setVisible(false);
+                ad.Asignar();
+                ad.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                ad.setVisible(true);
+                
+            }
+        });
+        
+                Desig.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent evt){
+                DesigActionPerformed(evt);
+                
+            }
+            private void DesigActionPerformed(ActionEvent evt){
+                
+                setVisible(false);
+                ad.Denominaciones();
+                ad.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                ad.setVisible(true);
+                
+            }
         });
 
         back.addActionListener(new ActionListener() {
